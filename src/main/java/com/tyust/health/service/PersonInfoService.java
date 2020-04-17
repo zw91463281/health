@@ -15,5 +15,5 @@ public interface PersonInfoService {
      * @param id
      * @return
      */
-    PersonInfo getPersonInfo(Integer id);
+    PersonInfo getPersonInfoById(Integer id);
 }

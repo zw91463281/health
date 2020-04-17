@@ -18,7 +18,7 @@ public class PersonInfoImpl implements PersonInfoService {
     private PersonInfoMapper personInfoMapper;
 
     @Override
-    public PersonInfo getPersonInfo(Integer id) {
+    public PersonInfo getPersonInfoById(Integer id) {
         return personInfoMapper.selectByPrimaryKey(id);
     }
 }
