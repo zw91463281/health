@@ -1,6 +1,9 @@
 package com.tyust.health.controller;
 
+import com.tyust.health.dao.PersonInfoMapper;
+import com.tyust.health.entity.PersonInfo;
 import com.tyust.health.result.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +20,9 @@ import java.util.ArrayList;
  */
 @Controller
 public class DemoController {
+
+    @Autowired
+    private PersonInfoMapper personInfoMapper;
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(){
@@ -42,6 +48,18 @@ public class DemoController {
         list.add(100);
         list.add(100);
         list.add("11");
+        return Result.success(list);
+    }
+
+    /**
+     * 数据库测试
+     */
+    @RequestMapping(value = "dbget")
+    @ResponseBody
+    public Result dbGet(){
+        ArrayList list = new ArrayList();
+        PersonInfo personInfo = personInfoMapper.selectByPrimaryKey(1);
+        list.add(personInfo);
         return Result.success(list);
     }
 }

@@ -3,7 +3,7 @@ package com.tyust.health.entity;
 import java.util.Date;
 
 public class HealthCard {
-    private Integer cradId;
+    private Integer id;
 
     private Integer userId;
 
@@ -13,7 +13,6 @@ public class HealthCard {
 
     private String county;
 
-    //体温
     private Double temperature;
 
     private Boolean isEpidemicArea;
@@ -30,12 +29,12 @@ public class HealthCard {
 
     private Integer flag;
 
-    public Integer getCradId() {
-        return cradId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCradId(Integer cradId) {
-        this.cradId = cradId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getUserId() {

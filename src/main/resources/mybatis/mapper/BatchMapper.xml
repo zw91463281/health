@@ -23,7 +23,8 @@
     delete from batch
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tyust.health.entity.Batch">
+
+  <insert id="insert" parameterType="com.tyust.health.entity.Batch" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into batch (id, batch_name, parent_id, 
       batch_range, time, create_time, 
       flag)
@@ -31,7 +32,8 @@
       #{batchRange,jdbcType=INTEGER}, #{time,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{flag,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.tyust.health.entity.Batch">
+
+  <insert id="insertSelective" parameterType="com.tyust.health.entity.Batch" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into batch
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

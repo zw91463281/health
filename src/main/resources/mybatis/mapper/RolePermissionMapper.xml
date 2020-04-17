@@ -19,13 +19,14 @@
     delete from role_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tyust.health.entity.RolePermission">
+  <insert id="insert" parameterType="com.tyust.health.entity.RolePermission"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into role_permission (id, role_id, permission_id
       )
     values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=VARCHAR}, #{permissionId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tyust.health.entity.RolePermission">
+
+  <insert id="insertSelective" parameterType="com.tyust.health.entity.RolePermission"  useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into role_permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -50,6 +51,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.tyust.health.entity.RolePermission">
     update role_permission
     <set>

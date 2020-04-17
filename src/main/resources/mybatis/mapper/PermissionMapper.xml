@@ -24,15 +24,17 @@
     delete from permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tyust.health.entity.Permission">
+
+  <insert id="insert" parameterType="com.tyust.health.entity.Permission" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into permission (id, permission_id, name, 
       description, url, parent_id, 
       permission_type, permission_status)
     values (#{id,jdbcType=INTEGER}, #{permissionId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{description,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER},
       #{permissionType,jdbcType=INTEGER}, #{permissionStatus,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.tyust.health.entity.Permission">
+
+  <insert id="insertSelective" parameterType="com.tyust.health.entity.Permission" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into permission
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

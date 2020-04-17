@@ -29,7 +29,8 @@
     delete from person_info
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tyust.health.entity.PersonInfo">
+
+  <insert id="insert" parameterType="com.tyust.health.entity.PersonInfo" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
     insert into person_info (user_id, name, phone, 
       college, student_class, province, 
       city, county, user_type, 
@@ -41,7 +42,8 @@
       #{isBackSchool,jdbcType=BIT}, #{batchId,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tyust.health.entity.PersonInfo">
+
+  <insert id="insertSelective" parameterType="com.tyust.health.entity.PersonInfo" useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">
     insert into person_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -120,6 +122,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.tyust.health.entity.PersonInfo">
     update person_info
     <set>

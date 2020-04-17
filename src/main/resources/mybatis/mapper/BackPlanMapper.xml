@@ -25,7 +25,8 @@
     delete from back_plan
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tyust.health.entity.BackPlan">
+
+  <insert id="insert" parameterType="com.tyust.health.entity.BackPlan" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into back_plan (id, name, user_id, 
       start_time, end_time, transport, 
       area, img_addr, flag
@@ -35,7 +36,8 @@
       #{area,jdbcType=VARCHAR}, #{imgAddr,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tyust.health.entity.BackPlan">
+
+  <insert id="insertSelective" parameterType="com.tyust.health.entity.BackPlan" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into back_plan
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -96,6 +98,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.tyust.health.entity.BackPlan">
     update back_plan
     <set>

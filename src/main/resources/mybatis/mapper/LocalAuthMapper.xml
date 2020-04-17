@@ -21,13 +21,15 @@
     delete from local_auth
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tyust.health.entity.LocalAuth">
+
+  <insert id="insert" parameterType="com.tyust.health.entity.LocalAuth" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into local_auth (id, user_id, name, 
       password, flag)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.tyust.health.entity.LocalAuth">
+
+  <insert id="insertSelective" parameterType="com.tyust.health.entity.LocalAuth" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into local_auth
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,6 +66,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.tyust.health.entity.LocalAuth">
     update local_auth
     <set>
