@@ -13,15 +13,16 @@ public class HealthCard {
 
     private String county;
 
-    private Long temperature;
+    //体温
+    private Double temperature;
 
-    private Byte isEpidemicArea;
+    private Boolean isEpidemicArea;
 
-    private Byte isContactPatient;
+    private Boolean isContactPatient;
 
     private Integer myhealth;
 
-    private Byte isBackSchool;
+    private Boolean isBackSchool;
 
     private Date createDate;
 
@@ -69,27 +70,27 @@ public class HealthCard {
         this.county = county == null ? null : county.trim();
     }
 
-    public Long getTemperature() {
+    public Double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(Long temperature) {
+    public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
 
-    public Byte getIsEpidemicArea() {
+    public Boolean getIsEpidemicArea() {
         return isEpidemicArea;
     }
 
-    public void setIsEpidemicArea(Byte isEpidemicArea) {
+    public void setIsEpidemicArea(Boolean isEpidemicArea) {
         this.isEpidemicArea = isEpidemicArea;
     }
 
-    public Byte getIsContactPatient() {
+    public Boolean getIsContactPatient() {
         return isContactPatient;
     }
 
-    public void setIsContactPatient(Byte isContactPatient) {
+    public void setIsContactPatient(Boolean isContactPatient) {
         this.isContactPatient = isContactPatient;
     }
 
@@ -101,11 +102,11 @@ public class HealthCard {
         this.myhealth = myhealth;
     }
 
-    public Byte getIsBackSchool() {
+    public Boolean getIsBackSchool() {
         return isBackSchool;
     }
 
-    public void setIsBackSchool(Byte isBackSchool) {
+    public void setIsBackSchool(Boolean isBackSchool) {
         this.isBackSchool = isBackSchool;
     }
 

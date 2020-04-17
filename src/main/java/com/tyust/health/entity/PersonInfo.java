@@ -9,7 +9,7 @@ public class PersonInfo {
 
     private Integer college;
 
-    private String class;
+    private String studentClass;
 
     private String province;
 
@@ -19,7 +19,7 @@ public class PersonInfo {
 
     private Integer userType;
 
-    private Byte isBackSchool;
+    private Boolean isBackSchool;
 
     private Integer batchId;
 
@@ -57,12 +57,12 @@ public class PersonInfo {
         this.college = college;
     }
 
-    public String getClass() {
-        return class;
+    public String getStudentClass() {
+        return studentClass;
     }
 
-    public void setClass(String class) {
-        this.class = class == null ? null : class.trim();
+    public void setStudentClass(String studentClass) {
+        this.studentClass = studentClass == null ? null : studentClass.trim();
     }
 
     public String getProvince() {
@@ -97,11 +97,11 @@ public class PersonInfo {
         this.userType = userType;
     }
 
-    public Byte getIsBackSchool() {
+    public Boolean getIsBackSchool() {
         return isBackSchool;
     }
 
-    public void setIsBackSchool(Byte isBackSchool) {
+    public void setIsBackSchool(Boolean isBackSchool) {
         this.isBackSchool = isBackSchool;
     }
 

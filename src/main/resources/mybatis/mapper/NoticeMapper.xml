@@ -7,7 +7,7 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="phone" jdbcType="BIGINT" property="phone" />
     <result column="college" jdbcType="INTEGER" property="college" />
-    <result column="class" jdbcType="VARCHAR" property="class" />
+    <result column="student_class" jdbcType="VARCHAR" property="studentClass" />
     <result column="user_status" jdbcType="INTEGER" property="userStatus" />
     <result column="notice_status" jdbcType="INTEGER" property="noticeStatus" />
     <result column="batch_id" jdbcType="INTEGER" property="batchId" />
@@ -19,8 +19,9 @@
     <result column="flag" jdbcType="INTEGER" property="flag" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, user_id, phone, college, class, user_status, notice_status, batch_id, create_time, 
-    generate_people, distribution_people, distribution_time, receive_time, flag
+    id, name, user_id, phone, college, student_class, user_status, notice_status, batch_id, 
+    create_time, generate_people, distribution_people, distribution_time, receive_time, 
+    flag
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -34,13 +35,13 @@
   </delete>
   <insert id="insert" parameterType="com.tyust.health.entity.Notice">
     insert into notice (id, name, user_id, 
-      phone, college, class, 
+      phone, college, student_class, 
       user_status, notice_status, batch_id, 
       create_time, generate_people, distribution_people, 
       distribution_time, receive_time, flag
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
-      #{phone,jdbcType=BIGINT}, #{college,jdbcType=INTEGER}, #{class,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=BIGINT}, #{college,jdbcType=INTEGER}, #{studentClass,jdbcType=VARCHAR}, 
       #{userStatus,jdbcType=INTEGER}, #{noticeStatus,jdbcType=INTEGER}, #{batchId,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{generatePeople,jdbcType=INTEGER}, #{distributionPeople,jdbcType=INTEGER}, 
       #{distributionTime,jdbcType=TIMESTAMP}, #{receiveTime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER}
@@ -64,8 +65,8 @@
       <if test="college != null">
         college,
       </if>
-      <if test="class != null">
-        class,
+      <if test="studentClass != null">
+        student_class,
       </if>
       <if test="userStatus != null">
         user_status,
@@ -111,8 +112,8 @@
       <if test="college != null">
         #{college,jdbcType=INTEGER},
       </if>
-      <if test="class != null">
-        #{class,jdbcType=VARCHAR},
+      <if test="studentClass != null">
+        #{studentClass,jdbcType=VARCHAR},
       </if>
       <if test="userStatus != null">
         #{userStatus,jdbcType=INTEGER},
@@ -158,8 +159,8 @@
       <if test="college != null">
         college = #{college,jdbcType=INTEGER},
       </if>
-      <if test="class != null">
-        class = #{class,jdbcType=VARCHAR},
+      <if test="studentClass != null">
+        student_class = #{studentClass,jdbcType=VARCHAR},
       </if>
       <if test="userStatus != null">
         user_status = #{userStatus,jdbcType=INTEGER},
@@ -197,7 +198,7 @@
       user_id = #{userId,jdbcType=INTEGER},
       phone = #{phone,jdbcType=BIGINT},
       college = #{college,jdbcType=INTEGER},
-      class = #{class,jdbcType=VARCHAR},
+      student_class = #{studentClass,jdbcType=VARCHAR},
       user_status = #{userStatus,jdbcType=INTEGER},
       notice_status = #{noticeStatus,jdbcType=INTEGER},
       batch_id = #{batchId,jdbcType=INTEGER},

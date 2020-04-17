@@ -13,6 +13,7 @@
         <!--数据库链接URL，用户名、密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/healthdaily?serverTimezone=Asia/Shanghai" userId="root" password="root">
         </jdbcConnection>
+
         <!-- 生成模型的包名和位置 -->
         <javaModelGenerator targetPackage="com.tyust.health.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>

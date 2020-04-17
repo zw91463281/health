@@ -7,11 +7,11 @@
     <result column="province" jdbcType="VARCHAR" property="province" />
     <result column="city" jdbcType="VARCHAR" property="city" />
     <result column="county" jdbcType="VARCHAR" property="county" />
-    <result column="temperature" jdbcType="DECIMAL" property="temperature" />
-    <result column="is_epidemic_area" jdbcType="TINYINT" property="isEpidemicArea" />
-    <result column="is_contact_patient" jdbcType="TINYINT" property="isContactPatient" />
+    <result column="temperature" jdbcType="DOUBLE" property="temperature" />
+    <result column="is_epidemic_area" jdbcType="BIT" property="isEpidemicArea" />
+    <result column="is_contact_patient" jdbcType="BIT" property="isContactPatient" />
     <result column="myhealth" jdbcType="INTEGER" property="myhealth" />
-    <result column="is_back_school" jdbcType="TINYINT" property="isBackSchool" />
+    <result column="is_back_school" jdbcType="BIT" property="isBackSchool" />
     <result column="create_date" jdbcType="DATE" property="createDate" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="flag" jdbcType="INTEGER" property="flag" />
@@ -37,9 +37,9 @@
       is_back_school, create_date, status, 
       flag)
     values (#{cradId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, 
-      #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, #{temperature,jdbcType=DECIMAL}, 
-      #{isEpidemicArea,jdbcType=TINYINT}, #{isContactPatient,jdbcType=TINYINT}, #{myhealth,jdbcType=INTEGER}, 
-      #{isBackSchool,jdbcType=TINYINT}, #{createDate,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
+      #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, #{temperature,jdbcType=DOUBLE}, 
+      #{isEpidemicArea,jdbcType=BIT}, #{isContactPatient,jdbcType=BIT}, #{myhealth,jdbcType=INTEGER}, 
+      #{isBackSchool,jdbcType=BIT}, #{createDate,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
       #{flag,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.tyust.health.entity.HealthCard">
@@ -102,19 +102,19 @@
         #{county,jdbcType=VARCHAR},
       </if>
       <if test="temperature != null">
-        #{temperature,jdbcType=DECIMAL},
+        #{temperature,jdbcType=DOUBLE},
       </if>
       <if test="isEpidemicArea != null">
-        #{isEpidemicArea,jdbcType=TINYINT},
+        #{isEpidemicArea,jdbcType=BIT},
       </if>
       <if test="isContactPatient != null">
-        #{isContactPatient,jdbcType=TINYINT},
+        #{isContactPatient,jdbcType=BIT},
       </if>
       <if test="myhealth != null">
         #{myhealth,jdbcType=INTEGER},
       </if>
       <if test="isBackSchool != null">
-        #{isBackSchool,jdbcType=TINYINT},
+        #{isBackSchool,jdbcType=BIT},
       </if>
       <if test="createDate != null">
         #{createDate,jdbcType=DATE},
@@ -143,19 +143,19 @@
         county = #{county,jdbcType=VARCHAR},
       </if>
       <if test="temperature != null">
-        temperature = #{temperature,jdbcType=DECIMAL},
+        temperature = #{temperature,jdbcType=DOUBLE},
       </if>
       <if test="isEpidemicArea != null">
-        is_epidemic_area = #{isEpidemicArea,jdbcType=TINYINT},
+        is_epidemic_area = #{isEpidemicArea,jdbcType=BIT},
       </if>
       <if test="isContactPatient != null">
-        is_contact_patient = #{isContactPatient,jdbcType=TINYINT},
+        is_contact_patient = #{isContactPatient,jdbcType=BIT},
       </if>
       <if test="myhealth != null">
         myhealth = #{myhealth,jdbcType=INTEGER},
       </if>
       <if test="isBackSchool != null">
-        is_back_school = #{isBackSchool,jdbcType=TINYINT},
+        is_back_school = #{isBackSchool,jdbcType=BIT},
       </if>
       <if test="createDate != null">
         create_date = #{createDate,jdbcType=DATE},
@@ -175,11 +175,11 @@
       province = #{province,jdbcType=VARCHAR},
       city = #{city,jdbcType=VARCHAR},
       county = #{county,jdbcType=VARCHAR},
-      temperature = #{temperature,jdbcType=DECIMAL},
-      is_epidemic_area = #{isEpidemicArea,jdbcType=TINYINT},
-      is_contact_patient = #{isContactPatient,jdbcType=TINYINT},
+      temperature = #{temperature,jdbcType=DOUBLE},
+      is_epidemic_area = #{isEpidemicArea,jdbcType=BIT},
+      is_contact_patient = #{isContactPatient,jdbcType=BIT},
       myhealth = #{myhealth,jdbcType=INTEGER},
-      is_back_school = #{isBackSchool,jdbcType=TINYINT},
+      is_back_school = #{isBackSchool,jdbcType=BIT},
       create_date = #{createDate,jdbcType=DATE},
       status = #{status,jdbcType=INTEGER},
       flag = #{flag,jdbcType=INTEGER}

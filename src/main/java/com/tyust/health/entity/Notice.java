@@ -13,7 +13,7 @@ public class Notice {
 
     private Integer college;
 
-    private String class;
+    private String studentClass;
 
     private Integer userStatus;
 
@@ -73,12 +73,12 @@ public class Notice {
         this.college = college;
     }
 
-    public String getClass() {
-        return class;
+    public String getStudentClass() {
+        return studentClass;
     }
 
-    public void setClass(String class) {
-        this.class = class == null ? null : class.trim();
+    public void setStudentClass(String studentClass) {
+        this.studentClass = studentClass == null ? null : studentClass.trim();
     }
 
     public Integer getUserStatus() {

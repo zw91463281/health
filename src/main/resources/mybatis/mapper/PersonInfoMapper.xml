@@ -6,18 +6,18 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="phone" jdbcType="BIGINT" property="phone" />
     <result column="college" jdbcType="INTEGER" property="college" />
-    <result column="class" jdbcType="VARCHAR" property="class" />
+    <result column="student_class" jdbcType="VARCHAR" property="studentClass" />
     <result column="province" jdbcType="VARCHAR" property="province" />
     <result column="city" jdbcType="VARCHAR" property="city" />
     <result column="county" jdbcType="VARCHAR" property="county" />
     <result column="user_type" jdbcType="INTEGER" property="userType" />
-    <result column="is_back_school" jdbcType="TINYINT" property="isBackSchool" />
+    <result column="is_back_school" jdbcType="BIT" property="isBackSchool" />
     <result column="batch_id" jdbcType="INTEGER" property="batchId" />
     <result column="flag" jdbcType="INTEGER" property="flag" />
   </resultMap>
   <sql id="Base_Column_List">
-    user_id, name, phone, college, class, province, city, county, user_type, is_back_school, 
-    batch_id, flag
+    user_id, name, phone, college, student_class, province, city, county, user_type, 
+    is_back_school, batch_id, flag
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -31,14 +31,14 @@
   </delete>
   <insert id="insert" parameterType="com.tyust.health.entity.PersonInfo">
     insert into person_info (user_id, name, phone, 
-      college, class, province, 
+      college, student_class, province, 
       city, county, user_type, 
       is_back_school, batch_id, flag
       )
     values (#{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=BIGINT}, 
-      #{college,jdbcType=INTEGER}, #{class,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{college,jdbcType=INTEGER}, #{studentClass,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
       #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, #{userType,jdbcType=INTEGER}, 
-      #{isBackSchool,jdbcType=TINYINT}, #{batchId,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}
+      #{isBackSchool,jdbcType=BIT}, #{batchId,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.tyust.health.entity.PersonInfo">
@@ -56,8 +56,8 @@
       <if test="college != null">
         college,
       </if>
-      <if test="class != null">
-        class,
+      <if test="studentClass != null">
+        student_class,
       </if>
       <if test="province != null">
         province,
@@ -94,8 +94,8 @@
       <if test="college != null">
         #{college,jdbcType=INTEGER},
       </if>
-      <if test="class != null">
-        #{class,jdbcType=VARCHAR},
+      <if test="studentClass != null">
+        #{studentClass,jdbcType=VARCHAR},
       </if>
       <if test="province != null">
         #{province,jdbcType=VARCHAR},
@@ -110,7 +110,7 @@
         #{userType,jdbcType=INTEGER},
       </if>
       <if test="isBackSchool != null">
-        #{isBackSchool,jdbcType=TINYINT},
+        #{isBackSchool,jdbcType=BIT},
       </if>
       <if test="batchId != null">
         #{batchId,jdbcType=INTEGER},
@@ -132,8 +132,8 @@
       <if test="college != null">
         college = #{college,jdbcType=INTEGER},
       </if>
-      <if test="class != null">
-        class = #{class,jdbcType=VARCHAR},
+      <if test="studentClass != null">
+        student_class = #{studentClass,jdbcType=VARCHAR},
       </if>
       <if test="province != null">
         province = #{province,jdbcType=VARCHAR},
@@ -148,7 +148,7 @@
         user_type = #{userType,jdbcType=INTEGER},
       </if>
       <if test="isBackSchool != null">
-        is_back_school = #{isBackSchool,jdbcType=TINYINT},
+        is_back_school = #{isBackSchool,jdbcType=BIT},
       </if>
       <if test="batchId != null">
         batch_id = #{batchId,jdbcType=INTEGER},
@@ -164,12 +164,12 @@
     set name = #{name,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=BIGINT},
       college = #{college,jdbcType=INTEGER},
-      class = #{class,jdbcType=VARCHAR},
+      student_class = #{studentClass,jdbcType=VARCHAR},
       province = #{province,jdbcType=VARCHAR},
       city = #{city,jdbcType=VARCHAR},
       county = #{county,jdbcType=VARCHAR},
       user_type = #{userType,jdbcType=INTEGER},
-      is_back_school = #{isBackSchool,jdbcType=TINYINT},
+      is_back_school = #{isBackSchool,jdbcType=BIT},
       batch_id = #{batchId,jdbcType=INTEGER},
       flag = #{flag,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=INTEGER}
