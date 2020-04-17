@@ -7,6 +7,15 @@ public class UserRole {
 
     private String roleId;
 
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", roleId='" + roleId + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

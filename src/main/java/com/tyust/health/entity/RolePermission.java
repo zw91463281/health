@@ -7,6 +7,15 @@ public class RolePermission {
 
     private String permissionId;
 
+    @Override
+    public String toString() {
+        return "RolePermission{" +
+                "id=" + id +
+                ", roleId='" + roleId + '\'' +
+                ", permissionId='" + permissionId + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

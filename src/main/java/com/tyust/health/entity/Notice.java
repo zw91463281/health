@@ -33,6 +33,27 @@ public class Notice {
 
     private Integer flag;
 
+    @Override
+    public String toString() {
+        return "Notice{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userId=" + userId +
+                ", phone=" + phone +
+                ", college=" + college +
+                ", studentClass='" + studentClass + '\'' +
+                ", userStatus=" + userStatus +
+                ", noticeStatus=" + noticeStatus +
+                ", batchId=" + batchId +
+                ", createTime=" + createTime +
+                ", generatePeople=" + generatePeople +
+                ", distributionPeople=" + distributionPeople +
+                ", distributionTime=" + distributionTime +
+                ", receiveTime=" + receiveTime +
+                ", flag=" + flag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

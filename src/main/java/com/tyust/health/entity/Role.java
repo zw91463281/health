@@ -15,6 +15,18 @@ public class Role {
 
     private Date lastEditTime;
 
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", roleStatus=" + roleStatus +
+                ", createTime=" + createTime +
+                ", lastEditTime=" + lastEditTime +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

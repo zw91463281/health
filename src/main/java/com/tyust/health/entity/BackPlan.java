@@ -21,6 +21,21 @@ public class BackPlan {
 
     private Integer flag;
 
+    @Override
+    public String toString() {
+        return "BackPlan{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userId=" + userId +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", transport='" + transport + '\'' +
+                ", area='" + area + '\'' +
+                ", imgAddr='" + imgAddr + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

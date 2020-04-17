@@ -29,6 +29,25 @@ public class HealthCard {
 
     private Integer flag;
 
+    @Override
+    public String toString() {
+        return "HealthCard{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", county='" + county + '\'' +
+                ", temperature=" + temperature +
+                ", isEpidemicArea=" + isEpidemicArea +
+                ", isContactPatient=" + isContactPatient +
+                ", myhealth=" + myhealth +
+                ", isBackSchool=" + isBackSchool +
+                ", createDate=" + createDate +
+                ", status=" + status +
+                ", flag=" + flag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

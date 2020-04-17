@@ -25,6 +25,24 @@ public class PersonInfo {
 
     private Integer flag;
 
+    @Override
+    public String toString() {
+        return "PersonInfo{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", phone=" + phone +
+                ", college=" + college +
+                ", studentClass='" + studentClass + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", county='" + county + '\'' +
+                ", userType=" + userType +
+                ", isBackSchool=" + isBackSchool +
+                ", batchId=" + batchId +
+                ", flag=" + flag +
+                '}';
+    }
+
     public Integer getUserId() {
         return userId;
     }

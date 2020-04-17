@@ -17,6 +17,20 @@ public class Permission {
 
     private Integer permissionStatus;
 
+    @Override
+    public String toString() {
+        return "Permission{" +
+                "id=" + id +
+                ", permissionId='" + permissionId + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", url='" + url + '\'' +
+                ", parentId=" + parentId +
+                ", permissionType=" + permissionType +
+                ", permissionStatus=" + permissionStatus +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

@@ -11,6 +11,17 @@ public class LocalAuth {
 
     private Integer flag;
 
+    @Override
+    public String toString() {
+        return "LocalAuth{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

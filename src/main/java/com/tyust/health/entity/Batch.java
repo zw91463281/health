@@ -17,6 +17,19 @@ public class Batch {
 
     private Integer flag;
 
+    @Override
+    public String toString() {
+        return "Batch{" +
+                "id=" + id +
+                ", batchName='" + batchName + '\'' +
+                ", parentId=" + parentId +
+                ", batchRange=" + batchRange +
+                ", time=" + time +
+                ", createTime=" + createTime +
+                ", flag=" + flag +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
