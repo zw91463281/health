@@ -17,6 +17,7 @@ public class CodeMsg {
     public static CodeMsg USER_NO_EXIST = new CodeMsg(500101,"用户不存在");
     public static CodeMsg USER_ERROR = new CodeMsg(500102,"账户名错误");
     public static CodeMsg PASSWORD_ERROR = new CodeMsg(500103,"密码错误");
+    public static CodeMsg EMPTY_PAGESIZE_OR_PAGEINDEX = new CodeMsg(500104,"空的页码或者页面大小");
 
     //健康卡管理模块  5002XX
 

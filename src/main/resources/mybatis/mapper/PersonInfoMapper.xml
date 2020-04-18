@@ -15,16 +15,68 @@
     <result column="batch_id" jdbcType="INTEGER" property="batchId" />
     <result column="flag" jdbcType="INTEGER" property="flag" />
   </resultMap>
+
   <sql id="Base_Column_List">
     user_id, name, phone, college, student_class, province, city, county, user_type, 
     is_back_school, batch_id, flag
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
-    <include refid="Base_Column_List" />
+        <include refid="Base_Column_List" />
     from person_info
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
+
+  <select id="selectPersonInfoList" resultType="com.tyust.health.entity.PersonInfo">
+    select
+        <include refid="Base_Column_List"></include>
+    from person_info
+    <where>
+        <if test="user.userId != null">
+            and user_id = #{user.userId}
+        </if>
+        <if test="user.name != null">
+            and name like '%'||#{user.name}||'%'
+        </if>
+        <if test="user.college != null">
+            and college = #{user.college}
+        </if>
+        <if test="user.studentClass != null">
+          and student_class like '%'||#{user.studentClass}||'%'
+        </if>
+        <if test="user.province != null">
+          and province = #{user.province}
+        </if>
+        <if test="user.city != null">
+          and city = #{user.city}
+        </if>
+        <if test="user.county != null">
+          and county = #{user.county}
+        </if>
+        <if test="user.userType != null">
+          and user_type = #{user.userType}
+        </if>
+        <if test="user.isBackSchool != null">
+          and is_back_school = #{user.isBackSchool}
+        </if>
+        <if test="user.batchId != null">
+           and batch_id = #{user.batchId}
+        </if>
+        <if test="user.flag != null">
+            and flag = #{user.flag}
+        </if>
+    </where>
+    order by
+    is_back_school desc
+    limit #{rowIndex},#{pageSize}
+
+
+  </select>
+
+
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from person_info
     where user_id = #{userId,jdbcType=INTEGER}
