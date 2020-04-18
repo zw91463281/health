@@ -33,17 +33,17 @@
         <include refid="Base_Column_List"></include>
     from person_info
     <where>
-        <if test="user.userId != null">
+<!--        <if test="user.userId != null">
             and user_id = #{user.userId}
-        </if>
+        </if>-->
         <if test="user.name != null">
-            and name like '%'||#{user.name}||'%'
+            and name like "%"#{user.name}"%"
         </if>
         <if test="user.college != null">
             and college = #{user.college}
         </if>
         <if test="user.studentClass != null">
-          and student_class like '%'||#{user.studentClass}||'%'
+          and student_class like "%"#{user.studentClass}"%"
         </if>
         <if test="user.province != null">
           and province = #{user.province}

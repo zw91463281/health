@@ -25,7 +25,7 @@ public class PersonInfoDaoTest {
     @Test
     public void testSelectByPrimaryKey(){
         PersonInfo personInfo = new PersonInfo();
-//        personInfo.setName("李");
+        personInfo.setName("李");
 //        personInfo.setBatchId(4);
 //        personInfo.setIsBackSchool(true);
         List<PersonInfo> list = personInfoMapper.selectPersonInfoList(personInfo,

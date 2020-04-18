@@ -53,7 +53,7 @@ public class PersonInfoController {
 
     /**
      * 获取指定查询条件下的用户信息列表
-     *
+     *URL示例   localhost:8080/user/getpersoninfolist?pageIndex=1&pageSize=100?name=....
      * @param pageIndex  页码
      * @param pageSize  页面大小
      * @param request
@@ -65,10 +65,10 @@ public class PersonInfoController {
                                     @RequestParam(value = "pageSize")int pageSize,
                                     HttpServletRequest request){
         //参数非空判断
-        if (pageIndex > -1 && pageSize > -1){
+        if ((pageIndex > 0) && (pageSize > 0)){
             //用户ID，用户名字（模糊查询），学院，班级（模糊查询），省份，城市，县区，人员类型，是否返校，返校批次,伪删除标记
             //尝试获取用户ID
-            int userId = HttpServletRequesyUtil.getInt(request,"userId");
+//            int userId = HttpServletRequesyUtil.getInt(request,"userId");
             //尝试获取用户名字
             String name = HttpServletRequesyUtil.getString(request,"name");
             //尝试获取学院
@@ -90,7 +90,7 @@ public class PersonInfoController {
             //尝试获取伪删除标记
             int flag = HttpServletRequesyUtil.getInt(request,"flag");
             //组合查询条件
-            PersonInfo personInfo = compactPersonInfoSearch(userId,name,colleage,studentClass,province,city,county,userType,isBackSchool,batchId,flag);
+            PersonInfo personInfo = compactPersonInfoSearch(name,colleage,studentClass,province,city,county,userType,isBackSchool,batchId,flag);
             //根据查询条件和分页信息获取用户信息列表
             List<PersonInfo> personInfoList = personInfoService.getPerSonInfoList(personInfo,pageIndex,pageSize);
             return Result.success(personInfoList);
@@ -103,7 +103,6 @@ public class PersonInfoController {
 
     /**
      * 组合查询条件，并将结果封装到一个PersonInfo对象里返回
-     * @param userId  用户Id
      * @param name   名字
      * @param colleage  学院
      * @param studentClass   班级
@@ -116,13 +115,13 @@ public class PersonInfoController {
      * @param flag  伪删除标记
      * @return
      */
-    private PersonInfo compactPersonInfoSearch(int userId, String name, int colleage, String studentClass,
+    private PersonInfo compactPersonInfoSearch(String name, int colleage, String studentClass,
                                                String province, String city, String county, int userType,
                                                boolean isBackSchool, int batchId,int flag) {
         PersonInfo personInfo = new PersonInfo();
-        if (userId != -1){
-            personInfo.setUserId(userId);
-        }
+//        if (userId != -1){
+//            personInfo.setUserId(userId);
+//        }
         if (name != null){
             personInfo.setName(name);
         }
