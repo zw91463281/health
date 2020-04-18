@@ -92,7 +92,7 @@ public class PersonInfoController {
             //组合查询条件
             PersonInfo personInfo = compactPersonInfoSearch(userId,name,colleage,studentClass,province,city,county,userType,isBackSchool,batchId,flag);
             //根据查询条件和分页信息获取用户信息列表
-            List<PersonInfo> personInfoList = personInfoService.getPerSonInfoList(personInfo,pageIndex,pageIndex);
+            List<PersonInfo> personInfoList = personInfoService.getPerSonInfoList(personInfo,pageIndex,pageSize);
             return Result.success(personInfoList);
         }else {
             throw new GlobalException(CodeMsg.EMPTY_PAGESIZE_OR_PAGEINDEX);
